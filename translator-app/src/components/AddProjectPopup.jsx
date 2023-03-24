@@ -97,24 +97,33 @@ export default function AddProjectPopup({ onClose, reloadProjectList }) {
 
   const handleSubmit = (e) => {
     e?.preventDefault();
+
     const username = JSON.parse(localStorage.getItem("user")).username;
+    if (selectedOptions.length === 0) {
+      window.alert('Please select an annotator to continue.');
+      return;
+    }
+    if (wikiTitle.length === 0) {
+      window.alert('Wiki title should not be empty.');
+    }
+
     if (
-      annotators.length > 0 &&
-      wikiTitle.length > 0 &&
       !!targetLanguage &&
       !!username
     ) {
-      console.log(annotators, wikiTitle, targetLanguage, username);
       createProject({
         project_id: `${targetLanguage}_${wikiTitle}`,
         wiki_title: wikiTitle,
         target_lang: targetLanguage,
         created_by: username,
         created_at: Date.now(),
-        assigned_to: annotators,
+        assigned_to: selectedOptions,
       }).then(() => {
         reloadProjectList();
         onClose();
+      }).catch((err) => {
+        console.error('Error with creating the project: ', err);
+        window.alert('Something went wrong while creating the project!');
       });
     }
   };
@@ -138,8 +147,8 @@ export default function AddProjectPopup({ onClose, reloadProjectList }) {
             value={wikiTitle}
           />
           <select
-            name="cars"
-            id="cars"
+            name="languages"
+            id="languages"
             required
             onChange={(e) => setTargetLanguage(e.target.value)}
             value={targetLanguage}

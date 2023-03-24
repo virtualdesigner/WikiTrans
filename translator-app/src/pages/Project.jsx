@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { listSentencesByProject, updateSentencesByProject } from "../services/sentence";
 import { ReactTransliterate } from "react-transliterate";
 import "react-transliterate/dist/index.css";
+import { isLoggedIn } from "../services/auth";
 
 const TableWrapper = styled.div`
   height: 100vh;
@@ -66,6 +67,8 @@ const Project = () => {
   const [targetTranslation, setTargetTranslation] = useState("");
 
   useEffect(() => {
+    if (!isLoggedIn()) window.location.assign("/");
+
     fetchProjectList();
   }, []);
 
