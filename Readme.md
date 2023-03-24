@@ -1,8 +1,5 @@
 # Translator App
 
-## Installation
-
-
 A simple web application that allows users to translate text from one language to another.
 
 ## Table of Contents
