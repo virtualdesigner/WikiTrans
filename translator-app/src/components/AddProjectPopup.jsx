@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { v4 as uuid } from "uuid";
 import styled from "styled-components";
 
-import { login } from "../services/auth";
 import DropdownWithCheckboxes from "./DropdownList";
 import CloseBtnImg from "../assets/close-button.png";
 import { getAnnotators } from "../services/user";
