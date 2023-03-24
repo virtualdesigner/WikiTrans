@@ -1,11 +1,8 @@
 import axios from "axios";
+import { getBackendUrl } from "../utils/common";
 import { getUserAuthTokens } from "./auth";
 
-// for dev
-// const API_URL = "http://localhost:8000/wiki-trans/";
-
-// for prod
-const API_URL = "https://deepak.pythonanywhere.com/wiki-trans/";
+const API_URL = getBackendUrl();
 
 export const getAnnotators = async (project) => {
     axios.defaults.headers.common = {'Authorization': `Bearer ${JSON.parse(localStorage.getItem('user')).access}`}

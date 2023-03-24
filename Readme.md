@@ -23,7 +23,7 @@ Clone this repository:
 git clone https://github.com/virtualdesigner/wikitrans.git
 ```
 
-**Back-end installation**
+### Back-end installation
 
 Change into the translator_server directory:
 ```
@@ -48,7 +48,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-**Front-end installation**
+### Front-end installation
 
 Change into the translator-app directory:
 ```
@@ -62,17 +62,17 @@ npm install
 
 ## Usage
 
-Start the frontend server:
+Start the front-end server:
 ```
 npm start
 ```
 
-Run the backend server:
+Start the back-end server:
 ```
 python manage.py runserver
 ```
 
-The react app should now be available at http://localhost:3000/ and the backend should be available at http://localhost:8000/
+The front-end app should now be available at http://localhost:3000/ and the back-end app should be available at http://localhost:8000/.
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.

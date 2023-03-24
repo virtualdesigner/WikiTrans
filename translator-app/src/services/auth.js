@@ -1,10 +1,7 @@
 import axios from "axios";
+import { getBackendUrl } from "../utils/common";
 
-// for dev
-// const API_URL = "http://localhost:8000/wiki-trans/";
-
-// for prod
-const API_URL = "https://deepak.pythonanywhere.com/wiki-trans/";
+const API_URL = getBackendUrl();
 
 export const login = async ({ username, password }) => {
   const res = await axios.post(API_URL + 'auth/token/', {username, password});
