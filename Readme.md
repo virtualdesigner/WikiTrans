@@ -2,6 +2,10 @@
 
 A simple web application that allows users to translate text from one language to another.
 
+## Stack
+
+React, Django Rest Framework.
+
 ## Table of Contents
 1. Installation
 2. Usage
